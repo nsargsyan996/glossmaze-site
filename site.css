@@ -1,0 +1,235 @@
+/* Gloss Maze website: same identity as the game (src/theme.ts). */
+
+@font-face { font-family: 'Bagel Fat One'; src: url('fonts/bagel-fat-one.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url('fonts/fredoka-400Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url('fonts/fredoka-500Medium.woff2') format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Fredoka'; src: url('fonts/fredoka-600SemiBold.woff2') format('woff2'); font-weight: 600; font-display: swap; }
+
+/* Game palettes. A section picks one by class; the board inherits it. */
+.theme-pool  { --bg-top: #DDF6FF; --bg-bottom: #93D7F0; --wall-top: #F5FCFF; --wall-side: #7FC2DA; --floor: #4D98B5; --floor-dot: #3F86A2; --paint: #FF4F74; --paint-hi: #FF9CB1; --paint-deep: #A6334B; --ink: #0D3445; }
+.theme-peach { --bg-top: #FFE7D9; --bg-bottom: #FFB79E; --wall-top: #FFF7F1; --wall-side: #EFA488; --floor: #D9836C; --floor-dot: #C5705A; --paint: #4B3FE0; --paint-hi: #8F87FF; --paint-deep: #312991; --ink: #4A2117; }
+.theme-lilac { --bg-top: #F3E8FF; --bg-bottom: #C9ACFF; --wall-top: #FCF8FF; --wall-side: #AE8DEB; --floor: #8363C6; --floor-dot: #7355B4; --paint: #0FBF98; --paint-hi: #73EBCD; --paint-deep: #0A7C63; --ink: #2B1652; }
+.theme-mint  { --bg-top: #EEF8DC; --bg-bottom: #BDE196; --wall-top: #FBFFF4; --wall-side: #9FCB73; --floor: #6C9C45; --floor-dot: #5D8B39; --paint: #FF7417; --paint-hi: #FFB57A; --paint-deep: #A64B0F; --ink: #21340D; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font: 400 18px/1.55 'Fredoka', ui-rounded, 'SF Pro Rounded', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--bg-top);
+}
+
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--paint); }
+:focus-visible { outline: 3px solid var(--paint); outline-offset: 3px; border-radius: 6px; }
+
+/* Sections are full-width bands, each in one game palette, like levels changing theme. */
+.band { background: linear-gradient(var(--bg-top), var(--bg-bottom)); color: var(--ink); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* The game's extruded display type: a solid shadow in the block colour. */
+.chunky {
+  font-family: 'Bagel Fat One', 'Fredoka', sans-serif;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0.07em 0 var(--wall-top);
+  margin: 0;
+}
+
+/* Section and page headings: Fredoka, so Bagel stays reserved for the big brand title and small accents. */
+.heading { font-family: 'Fredoka', sans-serif; font-weight: 600; line-height: 1.05; letter-spacing: -0.02em; margin: 0; }
+
+/* Header */
+.site-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; font: 600 24px/1 'Fredoka', sans-serif; letter-spacing: -0.01em; text-decoration: none; }
+.wordmark .ball-mark { width: 26px; height: 26px; }
+.site-head nav a { font-weight: 600; margin-left: 20px; }
+
+/* ---------- Board (mirrors src/components/Board.tsx) ---------- */
+.board-shell { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.board {
+  position: relative;
+  border-radius: calc(var(--c) * 0.55);
+  background: linear-gradient(var(--wall-top) 35%, color-mix(in srgb, var(--wall-top) 70%, var(--wall-side)));
+  box-shadow: 0 calc(var(--c) * 0.2) 0 var(--wall-side), 0 22px 40px -12px color-mix(in srgb, var(--ink) 40%, transparent);
+  touch-action: none; user-select: none; -webkit-user-select: none;
+  cursor: grab;
+}
+.board:active { cursor: grabbing; }
+.board .cell { position: absolute; width: var(--c); height: var(--c); background: var(--floor); overflow: hidden; }
+.board .dot { position: absolute; left: 50%; top: 50%; width: 15%; height: 15%; border-radius: 50%; background: var(--floor-dot); transform: translate(-50%, -50%); }
+.board .cell.up .dot { top: calc(50% + var(--c) * 0.13); }
+.board .paint {
+  position: absolute; inset: 0; background: var(--paint);
+  transform: scale(0.3); opacity: 0; border-radius: 50%;
+  transition: transform 200ms cubic-bezier(.34,1.8,.64,1), opacity 120ms, border-radius 200ms;
+}
+.board .cell.painted .paint { transform: scale(1); opacity: 1; border-radius: 0; }
+.board .lip { position: absolute; left: 0; right: 0; top: 0; height: calc(var(--c) * 0.26); background: var(--wall-side); }
+.board .lip::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 35%; background: var(--ink); opacity: 0.12; }
+.board .lip-shadow { position: absolute; left: 0; right: 0; top: calc(var(--c) * 0.26); height: calc(var(--c) * 0.11); background: var(--ink); opacity: 0.16; }
+.board .ao-l, .board .ao-r { position: absolute; top: 0; bottom: 0; width: calc(var(--c) * 0.08); background: var(--ink); opacity: 0.08; }
+.board .ao-l { left: 0; } .board .ao-r { right: 0; }
+.board .fillet {
+  /* Only the floor sliver outside the rounded wall corner; the tray shows through the rest. */
+  position: absolute; width: var(--r); height: var(--r);
+  background: radial-gradient(circle var(--r) at var(--at), transparent calc(100% - 0.5px), var(--floor) 100%);
+}
+.board .fillet.wet { background: radial-gradient(circle var(--r) at var(--at), transparent calc(100% - 0.5px), var(--paint) 100%); }
+
+.board .ball {
+  position: absolute; left: 0; top: 0; width: var(--c); height: var(--c);
+  display: grid; place-items: center;
+  transition-property: transform; transition-timing-function: cubic-bezier(.45,0,.85,1);
+  pointer-events: none;
+}
+.board .ball::before { /* contact shadow */
+  content: ''; position: absolute; bottom: 10%; width: 52%; height: 15%; border-radius: 50%; background: var(--ink); opacity: 0.16;
+}
+.board .ball b {
+  position: relative; width: 74%; height: 74%; margin-top: -6%;
+  border-radius: 50%; border: max(2px, calc(var(--c) * 0.06)) solid var(--wall-top);
+  background: linear-gradient(150deg, var(--paint-hi), var(--paint));
+  animation: none;
+}
+.board .ball b::after { /* shine */
+  content: ''; position: absolute; top: 10%; left: 16%; width: 34%; height: 22%; border-radius: 50%; background: #fff; opacity: 0.75; transform: rotate(-25deg);
+}
+.board .ball.bump b { animation: bump 220ms ease-out; }
+@keyframes bump { 30% { transform: scale(1.14, 0.8); } 100% { transform: scale(1); } }
+
+.board .win {
+  position: absolute; inset: 0; display: grid; place-items: center; border-radius: inherit;
+  background: color-mix(in srgb, var(--bg-top) 75%, transparent);
+  opacity: 0; transition: opacity 200ms; pointer-events: none;
+}
+.board .win span { font: 400 clamp(28px, 7vw, 44px)/1 'Bagel Fat One', sans-serif; color: var(--paint); text-shadow: 0 0.07em 0 var(--paint-deep); transform: scale(0.6); transition: transform 300ms cubic-bezier(.34,1.8,.64,1); }
+.board.won .win { opacity: 1; }
+.board.won .win span { transform: scale(1); }
+
+.board-caption { font-weight: 500; font-size: 15px; opacity: 0.75; text-align: center; min-height: 1.5em; margin: 0; }
+.board-tools { display: flex; gap: 10px; }
+.tool { font: 600 14px/1 'Fredoka', sans-serif; color: var(--ink); background: var(--wall-top); border: 0; border-radius: 14px; padding: 10px 16px; box-shadow: 0 4px 0 var(--wall-side); cursor: pointer; }
+.tool:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--wall-side); }
+
+/* ---------- Landing ---------- */
+.hero { padding-bottom: 72px; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding-top: 24px; }
+.hero h1 { font-size: clamp(64px, 11vw, 132px); }
+.hero .lede { font-size: clamp(19px, 2.2vw, 23px); font-weight: 500; max-width: 26ch; margin: 22px 0 30px; }
+.stores { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+.stores-note { font-size: 14px; opacity: 0.7; margin: 18px 0 0; }
+
+.how { padding: 72px 0; }
+.how h2, .inside h2 { font-size: clamp(38px, 6vw, 58px); margin-bottom: 36px; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; counter-reset: step; }
+.steps li { counter-increment: step; }
+.steps li::before {
+  content: counter(step);
+  display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 14px;
+  border-radius: 50%; background: var(--paint); color: #fff; box-shadow: 0 5px 0 var(--paint-deep);
+  font: 400 26px/1 'Bagel Fat One', sans-serif;
+}
+.steps h3 { font: 600 22px/1.25 'Fredoka', sans-serif; margin: 0 0 6px; }
+.steps p { margin: 0; max-width: 32ch; }
+
+.inside { padding: 72px 0 80px; }
+.facts { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 56px; }
+.facts li { display: grid; grid-template-columns: 28px 1fr; gap: 14px; padding: 18px 0; border-top: 3px solid color-mix(in srgb, var(--wall-side) 70%, transparent); }
+.facts li::before { content: ''; width: 22px; height: 22px; margin-top: 4px; border-radius: 50%; background: var(--paint); box-shadow: inset 0 0 0 3px var(--wall-top); }
+.facts strong { display: block; font-weight: 600; font-size: 20px; }
+.facts span { opacity: 0.85; }
+
+/* ---------- Footer ---------- */
+.site-foot { padding: 40px 0 48px; font-size: 15px; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; justify-content: space-between; }
+.site-foot nav { display: flex; gap: 22px; flex-wrap: wrap; font-weight: 600; }
+
+/* ---------- Policy page ---------- */
+.policy-head { padding-bottom: 40px; }
+.policy-head h1 { font-size: clamp(44px, 8vw, 76px); margin-top: 12px; }
+.policy-head .meta { margin: 14px 0 0; font-weight: 500; opacity: 0.75; }
+.policy { background: var(--wall-top); padding: 56px 0 72px; }
+.policy .prose { max-width: 68ch; margin: 0 auto; padding: 0 24px; font-size: 18px; line-height: 1.65; }
+.prose h2 { font: 600 30px/1.15 'Fredoka', sans-serif; letter-spacing: -0.01em; margin: 52px 0 12px; }
+.prose h3 { font: 600 20px/1.3 'Fredoka', sans-serif; margin: 28px 0 6px; }
+.prose p, .prose ul { margin: 0 0 14px; }
+.prose ul { padding-left: 1.2em; }
+.prose li { margin-bottom: 6px; }
+.prose .summary { margin-bottom: 32px; background: color-mix(in srgb, var(--bg-top) 70%, white); border-radius: 20px; padding: 20px 24px; box-shadow: 0 5px 0 var(--wall-side); }
+.prose .summary ul { margin: 8px 0 0; }
+.prose table { border-collapse: collapse; width: 100%; margin: 8px 0 18px; font-size: 16px; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 10px 12px 10px 0; border-bottom: 2px solid color-mix(in srgb, var(--wall-side) 50%, transparent); }
+.prose th { font-weight: 600; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  .hero .lede { margin-left: auto; margin-right: auto; }
+  .stores { justify-content: center; }
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+  .facts { grid-template-columns: 1fr; }
+  .site-foot .wrap { justify-content: center; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .board .paint, .board .ball, .board .win, .board .win span { transition-duration: 1ms !important; }
+  .board .ball.bump b { animation: none; }
+}
+
+/* ---------- Store badge (coming soon, not a link yet) ---------- */
+.store-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 58px; padding: 8px 20px 8px 14px;
+  border-radius: 16px;
+  background: var(--ink); color: #fff;
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--ink) 60%, black);
+  font: 600 22px/1.05 'Fredoka', sans-serif; letter-spacing: -0.01em;
+}
+.store-badge svg { width: 26px; height: 26px; fill: currentColor; flex: none; }
+.store-badge small { display: block; font: 500 12.5px/1.2 'Fredoka', sans-serif; letter-spacing: 0; opacity: 0.8; }
+.store-badge.quiet { background: var(--wall-top); color: var(--ink); box-shadow: 0 6px 0 var(--wall-side); }
+
+/* ---------- Screens ---------- */
+.screens { padding: 72px 0 80px; overflow: hidden; }
+.screens h2 { font-size: clamp(38px, 6vw, 58px); margin-bottom: 12px; }
+.section-lede { margin: 0 0 40px; max-width: 46ch; font-size: 19px; }
+.screen-row {
+  list-style: none; margin: 0 auto; padding: 0 24px 12px; max-width: 1080px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.screen-row img {
+  display: block; width: 100%; height: auto; border-radius: 28px;
+  box-shadow: 0 8px 0 var(--wall-side), 0 24px 40px -18px color-mix(in srgb, var(--ink) 55%, transparent);
+}
+@media (max-width: 860px) {
+  .screens .wrap { text-align: center; }
+  .section-lede { margin-left: auto; margin-right: auto; }
+  .screen-row {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%;
+    overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 20px;
+    scrollbar-width: none;
+  }
+  .screen-row::-webkit-scrollbar { display: none; }
+  .screen-row li { scroll-snap-align: center; }
+}
+
+/* ---------- Studio ---------- */
+.studio { padding: 56px 0; }
+.studio-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; }
+.studio-card img { border-radius: 18px; box-shadow: 0 6px 0 var(--wall-side); }
+.studio-card h2 { font-size: 28px; margin-bottom: 4px; }
+.studio-card p { margin: 0; max-width: 52ch; }
+.yt {
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  padding: 12px 20px; border-radius: 16px;
+  background: var(--wall-top); color: var(--ink); box-shadow: 0 5px 0 var(--wall-side);
+  font-weight: 600; text-decoration: none;
+}
+.yt:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--wall-side); }
+.yt svg { width: 22px; height: 22px; fill: #ff0033; }
+@media (max-width: 860px) {
+  .studio-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+}

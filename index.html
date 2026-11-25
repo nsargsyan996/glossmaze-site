@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gloss Maze: swipe the ball, paint every tile</title>
+  <meta name="description" content="Gloss Maze is a calm maze-painting puzzle. Swipe the ball, it rolls until it hits a wall, and every tile it crosses gets painted. Cover them all to clear the level.">
+  <meta name="theme-color" content="#DDF6FF">
+  <meta property="og:title" content="Gloss Maze">
+  <meta property="og:description" content="Swipe the ball. It rolls until it hits a wall. Paint every tile.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://glossmaze.com/">
+  <meta property="og:image" content="https://glossmaze.com/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://glossmaze.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/bagel-fat-one.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fredoka-500Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="theme-pool">
+
+  <header class="band theme-pool hero">
+    <div class="wrap">
+      <div class="site-head">
+        <a class="wordmark" href="./" aria-label="Gloss Maze home">
+          <svg class="ball-mark" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="#FF4F74" stroke="#F5FCFF" stroke-width="2.5"/><ellipse cx="9.5" cy="8" rx="3.6" ry="2.3" fill="#fff" opacity=".7" transform="rotate(-25 9.5 8)"/></svg>
+          Gloss Maze
+        </a>
+        <nav aria-label="Site"><a href="privacy.html">Privacy</a></nav>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1 class="chunky">Gloss<br>Maze</h1>
+          <p class="lede">Swipe the ball. It rolls until it hits a wall, painting every tile it crosses. Cover them all to clear the level.</p>
+          <div class="stores">
+            <span class="store-badge" aria-label="Coming soon to the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2.5h8A2.5 2.5 0 0 1 18.5 5v14a2.5 2.5 0 0 1-2.5 2.5H8A2.5 2.5 0 0 1 5.5 19V5A2.5 2.5 0 0 1 8 2.5Zm2 1.8a.6.6 0 0 0 0 1.2h4a.6.6 0 0 0 0-1.2h-4ZM12 17.6a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Z"/></svg>
+              <span><small>Coming soon to the</small>App Store</span>
+            </span>
+            <span class="store-badge quiet" aria-label="Coming soon to Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3.6v16.8a1 1 0 0 0 1.5.86l14-8.4a1 1 0 0 0 0-1.72l-14-8.4A1 1 0 0 0 5 3.6Z"/></svg>
+              <span><small>Coming soon to</small>Google Play</span>
+            </span>
+          </div>
+          <p class="stores-note">Free to play, with an occasional ad between levels</p>
+        </div>
+
+        <div class="board-shell" data-board>
+          <div class="board" tabindex="0" role="application" aria-label="Playable Gloss Maze board. Use the arrow keys or swipe to roll the ball."></div>
+          <p class="board-caption" aria-live="polite">This level is solving itself. Swipe, drag or use the arrow keys to play.</p>
+          <div class="board-tools"><button class="tool" type="button" data-restart>Restart</button></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="band theme-peach how" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 class="heading" id="how-title">How it plays</h2>
+        <ol class="steps">
+          <li>
+            <h3>Swipe</h3>
+            <p>Send the ball up, down, left or right. You can turn mid-swipe without lifting your finger.</p>
+          </li>
+          <li>
+            <h3>It keeps rolling</h3>
+            <p>The ball only stops when it hits a wall, so the puzzle is choosing where you'll stop.</p>
+          </li>
+          <li>
+            <h3>Paint every tile</h3>
+            <p>Every tile the ball rolls over gets painted. Cover the whole maze to finish the level.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band theme-lilac screens" aria-labelledby="screens-title">
+      <div class="wrap">
+        <h2 class="heading" id="screens-title">A new maze every time</h2>
+        <p class="section-lede">Every level is a new layout, and every one can be solved. Here are a few from the game.</p>
+      </div>
+      <ul class="screen-row" role="list">
+        <li><img src="img/screen-1-swipe.webp" width="540" height="1174" loading="lazy" alt="Level 12: an orange path painted through a green maze"></li>
+        <li><img src="img/screen-2-walls.webp" width="540" height="1174" loading="lazy" alt="Level 18: a teal ball rolling through a purple maze"></li>
+        <li><img src="img/screen-3-endless.webp" width="540" height="1174" loading="lazy" alt="Level 34: a large pink maze on a blue board"></li>
+        <li><img src="img/screen-4-stars.webp" width="540" height="1174" loading="lazy" alt="The Painted! screen with three stars and a Next level button"></li>
+      </ul>
+    </section>
+
+    <section class="band theme-mint inside" aria-labelledby="inside-title">
+      <div class="wrap">
+        <h2 class="heading" id="inside-title">Made to be relaxing</h2>
+        <ul class="facts">
+          <li><div><strong>Endless levels</strong><span>New mazes keep coming, slowly growing bigger and twistier.</span></div></li>
+          <li><div><strong>No timer, no game over</strong><span>Take as long as you like. Undo and restart are always there.</span></div></li>
+          <li><div><strong>Stars for tidy solutions</strong><span>Finish in the fewest moves to earn all three stars.</span></div></li>
+          <li><div><strong>Ads stay out of the way</strong><span>Only between levels, never during one, and none in your first five levels.</span></div></li>
+          <li><div><strong>Plays offline</strong><span>No connection needed to play. Ads only appear when you're online.</span></div></li>
+          <li><div><strong>No account</strong><span>Your progress is saved on your phone. Nothing to sign up for.</span></div></li>
+        </ul>
+      </div>
+    </section>
+    <section class="band theme-pool studio" aria-labelledby="studio-title">
+      <div class="wrap studio-card">
+        <img src="img/joytap.webp" alt="" width="80" height="80">
+        <div>
+          <h2 class="heading" id="studio-title">Made by Joytap Games</h2>
+          <p>Calm, colourful games for your phone. Our other game, <a href="https://hoppyblocks.com/">Hoppy Blocks</a>, is a block puzzle with gems to collect.</p>
+        </div>
+        <a class="yt" href="https://www.youtube.com/@joytap_games" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg>
+          Watch on YouTube
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="band theme-lilac site-foot">
+    <div class="wrap">
+      <span>&copy; 2026 Joytap Games</span>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy policy</a>
+        <a href="mailto:glossmaze.support@gmail.com">glossmaze.support@gmail.com</a>
+        <a href="https://www.youtube.com/@joytap_games" rel="noopener">YouTube</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="board.js" defer></script>
+</body>
+</html>
