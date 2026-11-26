@@ -233,3 +233,24 @@ a:hover { text-decoration-color: var(--paint); }
 @media (max-width: 860px) {
   .studio-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
 }
+
+/* ---------- Language menu ---------- */
+.site-head nav { display: flex; align-items: center; gap: 20px; }
+.site-head nav a { margin-left: 0; }
+.lang-menu { position: relative; }
+.lang-menu summary {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
+  padding: 6px 12px; border-radius: 12px; background: var(--wall-top); box-shadow: 0 3px 0 var(--wall-side);
+  font-weight: 600; font-size: 16px;
+}
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary svg { width: 18px; height: 18px; fill: currentColor; }
+.lang-menu ul {
+  position: absolute; right: 0; top: calc(100% + 10px); z-index: 20; margin: 0; padding: 8px; list-style: none;
+  min-width: 180px; border-radius: 16px; background: var(--wall-top); box-shadow: 0 6px 0 var(--wall-side), 0 18px 40px -16px rgba(0, 0, 0, 0.35);
+}
+.site-head nav .lang-menu ul a { display: block; padding: 8px 12px; border-radius: 10px; text-decoration: none; font-weight: 500; }
+.lang-menu ul a:hover { background: var(--bg-top); }
+.lang-menu ul a[aria-current] { font-weight: 600; color: var(--paint-deep); }
+/* Scripts the display face doesn't cover fall back to rounded system type. */
+:lang(ru) .chunky, :lang(hy) .chunky, :lang(ja) .chunky, :lang(ko) .chunky, :lang(zh-Hans) .chunky { font-family: 'Bagel Fat One', ui-rounded, system-ui, sans-serif; }

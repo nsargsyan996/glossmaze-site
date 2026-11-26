@@ -74,7 +74,9 @@
       board.appendChild(ball);
       var win = document.createElement('div');
       win.className = 'win';
-      win.innerHTML = '<span>Painted!</span>';
+      var label = document.createElement('span');
+      label.textContent = root.getAttribute('data-text-painted') || 'Painted!';
+      win.appendChild(label);
       board.appendChild(win);
       reset();
     }
@@ -180,7 +182,7 @@
       autoplay = false;
       clearTimeout(timer);
       reset();
-      if (caption) caption.textContent = 'Your turn: paint every tile.';
+      if (caption) caption.textContent = root.getAttribute('data-text-your-turn') || 'Your turn: paint every tile.';
     }
 
     // Keyboard (when the board has focus)

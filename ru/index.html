@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Gloss Maze — головоломка-лабиринт: катай шарик и закрашивай клетки</title>
+<meta content="Gloss Maze — спокойная головоломка-раскраска в лабиринте. Смахни шарик: он катится до стены и закрашивает каждую клетку на пути. Закрась все клетки, чтобы пройти уровень." name="description"/>
+<meta content="#DDF6FF" name="theme-color"/>
+<meta content="Gloss Maze" property="og:title"/>
+<meta content="Смахни шарик. Он катится до стены. Закрась каждую клетку." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://glossmaze.com/ru/" property="og:url"/>
+<meta content="https://glossmaze.com/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://glossmaze.com/ru/" rel="canonical"/>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="../fonts/bagel-fat-one.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../fonts/fredoka-500Medium.woff2" rel="preload" type="font/woff2"/>
+<link href="../site.css" rel="stylesheet"/>
+<!-- i18n:head --><link rel="alternate" hreflang="en" href="https://glossmaze.com/"><link rel="alternate" hreflang="es" href="https://glossmaze.com/es/"><link rel="alternate" hreflang="fr" href="https://glossmaze.com/fr/"><link rel="alternate" hreflang="de" href="https://glossmaze.com/de/"><link rel="alternate" hreflang="it" href="https://glossmaze.com/it/"><link rel="alternate" hreflang="pt" href="https://glossmaze.com/pt/"><link rel="alternate" hreflang="ru" href="https://glossmaze.com/ru/"><link rel="alternate" hreflang="tr" href="https://glossmaze.com/tr/"><link rel="alternate" hreflang="hy" href="https://glossmaze.com/hy/"><link rel="alternate" hreflang="ja" href="https://glossmaze.com/ja/"><link rel="alternate" hreflang="ko" href="https://glossmaze.com/ko/"><link rel="alternate" hreflang="zh-Hans" href="https://glossmaze.com/zh/"><link rel="alternate" hreflang="x-default" href="https://glossmaze.com/"><script>(function(){var L=["en", "es", "fr", "de", "it", "pt", "ru", "tr", "hy", "ja", "ko", "zh"];try{document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)localStorage.setItem('lang',a.getAttribute('data-lang'));});}catch(e){}})();</script><!-- /i18n:head -->
+</head>
+<body class="theme-pool">
+<header class="band theme-pool hero">
+<div class="wrap">
+<div class="site-head">
+<a aria-label="Gloss Maze — главная" class="wordmark" href="./">
+<svg aria-hidden="true" class="ball-mark" viewbox="0 0 26 26"><circle cx="13" cy="13" fill="#FF4F74" r="11.5" stroke="#F5FCFF" stroke-width="2.5"></circle><ellipse cx="9.5" cy="8" fill="#fff" opacity=".7" rx="3.6" ry="2.3" transform="rotate(-25 9.5 8)"></ellipse></svg> Gloss Maze </a>
+<nav aria-label="Сайт"><a href="privacy.html">Конфиденциальность</a><!-- i18n:menu --><details class="lang-menu" data-i18n-skip><summary aria-label="Language: Русский"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8ZM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4ZM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3Zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16ZM8 8H5.1a8 8 0 0 1 4.3-3.6C8.8 5.5 8.3 6.7 8 8Zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6Zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4Z"/></svg><span>RU</span></summary><ul><li><a href="/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a></li><li><a href="/pt/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru" aria-current="true">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li><li><a href="/hy/" hreflang="hy" lang="hy" data-lang="hy">Հայերեն</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a></li><li><a href="/zh/" hreflang="zh-Hans" lang="zh" data-lang="zh">简体中文</a></li></ul></details><!-- /i18n:menu --></nav>
+</div>
+<div class="hero-grid">
+<div>
+<h1 class="chunky">Gloss<br/>Maze</h1>
+<p class="lede">Смахни шарик. Он катится, пока не упрётся в стену, и закрашивает каждую клетку на пути. Закрась все, чтобы пройти уровень.</p>
+<div class="stores">
+<span aria-label="Скоро в App Store" class="store-badge">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 2.5h8A2.5 2.5 0 0 1 18.5 5v14a2.5 2.5 0 0 1-2.5 2.5H8A2.5 2.5 0 0 1 5.5 19V5A2.5 2.5 0 0 1 8 2.5Zm2 1.8a.6.6 0 0 0 0 1.2h4a.6.6 0 0 0 0-1.2h-4ZM12 17.6a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Z"></path></svg>
+<span><small>Скоро в</small>App Store</span>
+</span>
+<span aria-label="Скоро в Google Play" class="store-badge quiet">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 3.6v16.8a1 1 0 0 0 1.5.86l14-8.4a1 1 0 0 0 0-1.72l-14-8.4A1 1 0 0 0 5 3.6Z"></path></svg>
+<span><small>Скоро в</small>Google Play</span>
+</span>
+</div>
+<p class="stores-note">Бесплатно, с редкой рекламой между уровнями</p>
+</div>
+<div class="board-shell" data-board="" data-text-painted="Закрашено!" data-text-your-turn="Твой ход: закрась каждую клетку.">
+<div aria-label="Игровое поле Gloss Maze. Используй стрелки или смахивай, чтобы катить шарик." class="board" role="application" tabindex="0"></div>
+<p aria-live="polite" class="board-caption">Этот уровень решается сам. Смахни, потяни или нажми стрелки, чтобы играть.</p>
+<div class="board-tools"><button class="tool" data-restart="" type="button">Заново</button></div>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section aria-labelledby="how-title" class="band theme-peach how">
+<div class="wrap">
+<h2 class="heading" id="how-title">Как играть</h2>
+<ol class="steps">
+<li>
+<h3>Смахни</h3>
+<p>Отправь шарик вверх, вниз, влево или вправо. Можно менять направление, не отрывая палец.</p>
+</li>
+<li>
+<h3>Он катится дальше</h3>
+<p>Шарик останавливается только у стены, поэтому вся головоломка в том, где ты остановишься.</p>
+</li>
+<li>
+<h3>Закрась каждую клетку</h3>
+<p>Каждая клетка, по которой прокатился шарик, закрашивается. Закрась весь лабиринт, чтобы пройти уровень.</p>
+</li>
+</ol>
+</div>
+</section>
+<section aria-labelledby="screens-title" class="band theme-lilac screens">
+<div class="wrap">
+<h2 class="heading" id="screens-title">Каждый раз новый лабиринт</h2>
+<p class="section-lede">Каждый уровень — новый лабиринт, и каждый можно пройти. Вот несколько из игры.</p>
+</div>
+<ul class="screen-row" role="list">
+<li><img alt="Уровень 12: оранжевая дорожка в зелёном лабиринте" height="1174" loading="lazy" src="../img/screen-1-swipe.webp" width="540"/></li>
+<li><img alt="Уровень 18: бирюзовый шарик катится по фиолетовому лабиринту" height="1174" loading="lazy" src="../img/screen-2-walls.webp" width="540"/></li>
+<li><img alt="Уровень 34: большой розовый лабиринт на синем поле" height="1174" loading="lazy" src="../img/screen-3-endless.webp" width="540"/></li>
+<li><img alt="Экран «Закрашено!» с тремя звёздами и кнопкой следующего уровня" height="1174" loading="lazy" src="../img/screen-4-stars.webp" width="540"/></li>
+</ul>
+</section>
+<section aria-labelledby="inside-title" class="band theme-mint inside">
+<div class="wrap">
+<h2 class="heading" id="inside-title">Создана для отдыха</h2>
+<ul class="facts">
+<li><div><strong>Бесконечные уровни</strong><span>Новые лабиринты не кончаются и постепенно становятся больше и запутаннее.</span></div></li>
+<li><div><strong>Без таймера и проигрыша</strong><span>Думай сколько хочешь. Отмена хода и перезапуск всегда под рукой.</span></div></li>
+<li><div><strong>Звёзды за аккуратность</strong><span>Пройди уровень за наименьшее число ходов и получи все три звезды.</span></div></li>
+<li><div><strong>Реклама не мешает</strong><span>Только между уровнями, никогда во время игры, и совсем нет в первых пяти уровнях.</span></div></li>
+<li><div><strong>Играй без интернета</strong><span>Для игры сеть не нужна. Реклама показывается, только когда ты онлайн.</span></div></li>
+<li><div><strong>Без аккаунта</strong><span>Прогресс сохраняется на телефоне. Регистрироваться не нужно.</span></div></li>
+</ul>
+</div>
+</section>
+<section aria-labelledby="studio-title" class="band theme-pool studio">
+<div class="wrap studio-card">
+<img alt="" height="80" src="../img/joytap.webp" width="80"/>
+<div>
+<h2 class="heading" id="studio-title">Сделано Joytap Games</h2>
+<p>Спокойные и яркие игры для телефона. Наша другая игра — <a href="https://hoppyblocks.com/">Hoppy Blocks</a>, головоломка с блоками и драгоценными камнями.</p>
+</div>
+<a class="yt" href="https://www.youtube.com/@joytap_games" rel="noopener">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"></path></svg> Смотреть на YouTube </a>
+</div>
+</section>
+</main>
+<footer class="band theme-lilac site-foot">
+<div class="wrap">
+<span>© 2026 Joytap Games</span>
+<nav aria-label="Подвал"><a href="privacy.html">Политика конфиденциальности</a> <a href="mailto:glossmaze.support@gmail.com">glossmaze.support@gmail.com</a> <a href="https://www.youtube.com/@joytap_games" rel="noopener">YouTube</a></nav>
+</div>
+</footer>
+<script defer="" src="../board.js"></script>
+</body>
+</html>

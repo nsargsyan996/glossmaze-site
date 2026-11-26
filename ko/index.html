@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Gloss Maze: 미로 퍼즐 게임 – 공을 굴려 모든 칸을 칠하세요</title>
+<meta content="Gloss Maze는 편안한 미로 색칠 퍼즐입니다. 공을 밀면 벽에 닿을 때까지 굴러가며 지나간 모든 칸을 칠합니다. 모든 칸을 칠하면 레벨 클리어!" name="description"/>
+<meta content="#DDF6FF" name="theme-color"/>
+<meta content="Gloss Maze" property="og:title"/>
+<meta content="공을 밀어요. 벽까지 굴러가요. 모든 칸을 칠하세요." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://glossmaze.com/ko/" property="og:url"/>
+<meta content="https://glossmaze.com/og.jpg" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="https://glossmaze.com/ko/" rel="canonical"/>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin="" href="../fonts/bagel-fat-one.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../fonts/fredoka-500Medium.woff2" rel="preload" type="font/woff2"/>
+<link href="../site.css" rel="stylesheet"/>
+<!-- i18n:head --><link rel="alternate" hreflang="en" href="https://glossmaze.com/"><link rel="alternate" hreflang="es" href="https://glossmaze.com/es/"><link rel="alternate" hreflang="fr" href="https://glossmaze.com/fr/"><link rel="alternate" hreflang="de" href="https://glossmaze.com/de/"><link rel="alternate" hreflang="it" href="https://glossmaze.com/it/"><link rel="alternate" hreflang="pt" href="https://glossmaze.com/pt/"><link rel="alternate" hreflang="ru" href="https://glossmaze.com/ru/"><link rel="alternate" hreflang="tr" href="https://glossmaze.com/tr/"><link rel="alternate" hreflang="hy" href="https://glossmaze.com/hy/"><link rel="alternate" hreflang="ja" href="https://glossmaze.com/ja/"><link rel="alternate" hreflang="ko" href="https://glossmaze.com/ko/"><link rel="alternate" hreflang="zh-Hans" href="https://glossmaze.com/zh/"><link rel="alternate" hreflang="x-default" href="https://glossmaze.com/"><script>(function(){var L=["en", "es", "fr", "de", "it", "pt", "ru", "tr", "hy", "ja", "ko", "zh"];try{document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)localStorage.setItem('lang',a.getAttribute('data-lang'));});}catch(e){}})();</script><!-- /i18n:head -->
+</head>
+<body class="theme-pool">
+<header class="band theme-pool hero">
+<div class="wrap">
+<div class="site-head">
+<a aria-label="Gloss Maze 홈" class="wordmark" href="./">
+<svg aria-hidden="true" class="ball-mark" viewbox="0 0 26 26"><circle cx="13" cy="13" fill="#FF4F74" r="11.5" stroke="#F5FCFF" stroke-width="2.5"></circle><ellipse cx="9.5" cy="8" fill="#fff" opacity=".7" rx="3.6" ry="2.3" transform="rotate(-25 9.5 8)"></ellipse></svg> Gloss Maze </a>
+<nav aria-label="사이트"><a href="privacy.html">개인정보</a><!-- i18n:menu --><details class="lang-menu" data-i18n-skip><summary aria-label="Language: 한국어"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8ZM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4ZM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3Zm.8 2h2.9c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16ZM8 8H5.1a8 8 0 0 1 4.3-3.6C8.8 5.5 8.3 6.7 8 8Zm4 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4Zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4Zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h2.9a8 8 0 0 1-4.3 3.6Zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4Z"/></svg><span>KO</span></summary><ul><li><a href="/" hreflang="en" lang="en" data-lang="en">English</a></li><li><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a></li><li><a href="/fr/" hreflang="fr" lang="fr" data-lang="fr">Français</a></li><li><a href="/de/" hreflang="de" lang="de" data-lang="de">Deutsch</a></li><li><a href="/it/" hreflang="it" lang="it" data-lang="it">Italiano</a></li><li><a href="/pt/" hreflang="pt" lang="pt" data-lang="pt">Português</a></li><li><a href="/ru/" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li><li><a href="/tr/" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li><li><a href="/hy/" hreflang="hy" lang="hy" data-lang="hy">Հայերեն</a></li><li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li><li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko" aria-current="true">한국어</a></li><li><a href="/zh/" hreflang="zh-Hans" lang="zh" data-lang="zh">简体中文</a></li></ul></details><!-- /i18n:menu --></nav>
+</div>
+<div class="hero-grid">
+<div>
+<h1 class="chunky">Gloss<br/>Maze</h1>
+<p class="lede">공을 밀어요. 벽에 닿을 때까지 굴러가며 지나간 모든 칸을 칠합니다. 모두 칠하면 레벨 클리어.</p>
+<div class="stores">
+<span aria-label="App Store 곧 출시" class="store-badge">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M8 2.5h8A2.5 2.5 0 0 1 18.5 5v14a2.5 2.5 0 0 1-2.5 2.5H8A2.5 2.5 0 0 1 5.5 19V5A2.5 2.5 0 0 1 8 2.5Zm2 1.8a.6.6 0 0 0 0 1.2h4a.6.6 0 0 0 0-1.2h-4ZM12 17.6a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Z"></path></svg>
+<span><small>곧 출시</small>App Store</span>
+</span>
+<span aria-label="Google Play 곧 출시" class="store-badge quiet">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M5 3.6v16.8a1 1 0 0 0 1.5.86l14-8.4a1 1 0 0 0 0-1.72l-14-8.4A1 1 0 0 0 5 3.6Z"></path></svg>
+<span><small>곧 출시</small>Google Play</span>
+</span>
+</div>
+<p class="stores-note">무료, 레벨 사이에 가끔 광고가 나와요</p>
+</div>
+<div class="board-shell" data-board="" data-text-painted="색칠 완료!" data-text-your-turn="내 차례: 모든 칸을 칠하세요.">
+<div aria-label="플레이할 수 있는 Gloss Maze 보드. 방향키나 밀기로 공을 굴리세요." class="board" role="application" tabindex="0"></div>
+<p aria-live="polite" class="board-caption">이 레벨은 스스로 풀리는 중이에요. 밀기, 드래그 또는 방향키로 플레이하세요.</p>
+<div class="board-tools"><button class="tool" data-restart="" type="button">다시 시작</button></div>
+</div>
+</div>
+</div>
+</header>
+<main>
+<section aria-labelledby="how-title" class="band theme-peach how">
+<div class="wrap">
+<h2 class="heading" id="how-title">플레이 방법</h2>
+<ol class="steps">
+<li>
+<h3>밀기</h3>
+<p>공을 위, 아래, 왼쪽, 오른쪽으로 보내세요. 손가락을 떼지 않고 방향을 바꿀 수도 있어요.</p>
+</li>
+<li>
+<h3>계속 굴러가요</h3>
+<p>공은 벽에 닿아야만 멈춰요. 어디서 멈출지 고르는 것이 퍼즐이에요.</p>
+</li>
+<li>
+<h3>모든 칸을 칠하세요</h3>
+<p>공이 지나간 칸은 모두 칠해져요. 미로 전체를 칠하면 레벨 완료.</p>
+</li>
+</ol>
+</div>
+</section>
+<section aria-labelledby="screens-title" class="band theme-lilac screens">
+<div class="wrap">
+<h2 class="heading" id="screens-title">매번 새로운 미로</h2>
+<p class="section-lede">레벨마다 새로운 모양이고, 모두 풀 수 있어요. 게임 속 몇 가지를 소개합니다.</p>
+</div>
+<ul class="screen-row" role="list">
+<li><img alt="레벨 12: 초록 미로에 칠해진 주황색 길" height="1174" loading="lazy" src="../img/screen-1-swipe.webp" width="540"/></li>
+<li><img alt="레벨 18: 보라색 미로를 굴러가는 청록색 공" height="1174" loading="lazy" src="../img/screen-2-walls.webp" width="540"/></li>
+<li><img alt="레벨 34: 파란 보드 위의 큰 분홍색 미로" height="1174" loading="lazy" src="../img/screen-3-endless.webp" width="540"/></li>
+<li><img alt="별 세 개와 다음 레벨 버튼이 있는 '색칠 완료!' 화면" height="1174" loading="lazy" src="../img/screen-4-stars.webp" width="540"/></li>
+</ul>
+</section>
+<section aria-labelledby="inside-title" class="band theme-mint inside">
+<div class="wrap">
+<h2 class="heading" id="inside-title">편안하게 즐기도록</h2>
+<ul class="facts">
+<li><div><strong>끝없는 레벨</strong><span>새 미로가 계속 나오고, 조금씩 더 크고 복잡해져요.</span></div></li>
+<li><div><strong>시간 제한도, 게임 오버도 없음</strong><span>원하는 만큼 생각하세요. 되돌리기와 다시 시작은 언제든 가능해요.</span></div></li>
+<li><div><strong>깔끔한 풀이에 별</strong><span>가장 적은 이동으로 끝내면 별 세 개를 모두 받아요.</span></div></li>
+<li><div><strong>방해되지 않는 광고</strong><span>레벨 사이에만 나오고 플레이 중에는 절대 나오지 않으며, 처음 다섯 레벨에는 없어요.</span></div></li>
+<li><div><strong>오프라인 플레이</strong><span>플레이에 인터넷이 필요 없어요. 광고는 온라인일 때만 나와요.</span></div></li>
+<li><div><strong>계정 불필요</strong><span>진행 상황은 휴대폰에 저장돼요. 가입할 필요가 없어요.</span></div></li>
+</ul>
+</div>
+</section>
+<section aria-labelledby="studio-title" class="band theme-pool studio">
+<div class="wrap studio-card">
+<img alt="" height="80" src="../img/joytap.webp" width="80"/>
+<div>
+<h2 class="heading" id="studio-title">Joytap Games 제작</h2>
+<p>휴대폰으로 즐기는 차분하고 알록달록한 게임. 다른 게임 <a href="https://hoppyblocks.com/">Hoppy Blocks</a>는 보석을 모으는 블록 퍼즐이에요.</p>
+</div>
+<a class="yt" href="https://www.youtube.com/@joytap_games" rel="noopener">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8ZM10 15V9l5.2 3L10 15Z"></path></svg> YouTube에서 보기 </a>
+</div>
+</section>
+</main>
+<footer class="band theme-lilac site-foot">
+<div class="wrap">
+<span>© 2026 Joytap Games</span>
+<nav aria-label="바닥글"><a href="privacy.html">개인정보처리방침</a> <a href="mailto:glossmaze.support@gmail.com">glossmaze.support@gmail.com</a> <a href="https://www.youtube.com/@joytap_games" rel="noopener">YouTube</a></nav>
+</div>
+</footer>
+<script defer="" src="../board.js"></script>
+</body>
+</html>
